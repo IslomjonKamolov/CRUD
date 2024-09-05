@@ -1,0 +1,143 @@
+/* HTML <div class="loader"></div> */
+
+
+.loader {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 30px;
+    position: relative;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 25px;
+    left: 45px;
+    top: 80px;
+    color: rgb(195, 193, 193);
+    animation: loader 2s infinite;
+}
+
+.loader::before {
+    content: '';
+    position: absolute;
+    font-family: sans-serif;
+    top: 80px;
+    height: 28px;
+    width: 120px;
+    left: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+    animation: loader2 1s infinite;
+    background: #000;
+}
+
+@keyframes loader {
+    0% {
+        content: '';
+    }
+
+    2% {
+        content: 'L';
+    }
+
+    4% {
+        content: 'Lo';
+    }
+
+    6% {
+        content: 'Loa';
+    }
+
+    8% {
+        content: 'Load';
+    }
+
+    10% {
+        content: 'Loadi';
+    }
+
+    12% {
+        content: 'Loadin';
+    }
+
+    14% {
+        content: 'Loading';
+    }
+
+    16% {
+        content: 'Loading.';
+    }
+
+    18% {
+        content: 'Loading..';
+    }
+
+    20% {
+        content: 'Loading...';
+    }
+
+    80% {
+        content: 'Loading...';
+    }
+
+    82% {
+        content: "Loading..";
+    }
+
+    84% {
+        content: "Loading.";
+    }
+
+    86% {
+        content: "Loading";
+    }
+
+    88% {
+        content: "Loadin";
+    }
+
+    90% {
+        content: "Loadi";
+    }
+
+    92% {
+        content: "Load";
+    }
+
+    94% {
+        content: "Loa";
+    }
+
+    96% {
+        content: "Lo";
+    }
+
+    98% {
+        content: "L";
+    }
+
+    100% {
+        content: "";
+    }
+}
+
+@keyframes loader2 {
+    0% {
+        width: 0;
+        left: -100%;
+    }
+
+    50%{
+        width: 120px;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
