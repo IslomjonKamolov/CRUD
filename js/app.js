@@ -131,7 +131,7 @@ function addEvent() {
                     return db.id != deletingItem.id
                 })
                 dataBase = newDB
-                texts__box.innerHTML = `<p class="no__data__text">No data available</p>`
+                texts__box.innerHTML = ``
                 dataBase.forEach((item, index) => {
                     let titleBox = document.createElement('div')
                     titleBox.classList.add('title__box')
@@ -145,6 +145,9 @@ function addEvent() {
                     document.querySelector('.titles__box').appendChild(titleBox)
                 })
                 addEvent()
+                if(dataBase.length < 1){
+                    empty()
+                }
             }
             localStorage.setItem('info', JSON.stringify(dataBase))
             console.log('DONE!');
@@ -228,11 +231,13 @@ form.addEventListener('submit', (e) => {
 
 
 
-if (document.querySelector('.titles__box').innerHTML == '') {
-    document.querySelector('.titles__box').innerHTML = `<p class="no__data__text">No data available</p>`
+function empty() {
+    if (document.querySelector('.titles__box').innerHTML == '') {
+        document.querySelector('.titles__box').innerHTML = `<p class="no__data__text">No data available</p>`
+    }
 }
 
-
+empty()
 
 
 
