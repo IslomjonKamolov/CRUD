@@ -2,6 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
+}
+
+.developer__name{
+    font-family: 'Courier New', Courier, monospace;
+    color: rgba(255, 255, 255, 0.633);
+    position: fixed;
+    left: 20px;
+    top: 94vh;
+}
+
+@media (max-width: 768px) {
+    .developer__name{
+        color: aqua;
+        font-size: 10px;
+        top: 15vh;
+    }
 }
 
 body {
