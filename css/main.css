@@ -129,7 +129,7 @@ label {
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     border: 1px solid white;
     cursor: pointer;
 }
@@ -247,3 +247,31 @@ label {
     text-align: justify;
 }
 
+.menuBar{
+    display: none;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.main__title{
+    width: 100%;
+    display: flex;
+}
+
+.trashBin, .editButton{
+    width: 24px;
+    height: 24px;
+    border: none;
+    display: flex;
+    padding: 0;
+    box-shadow: none;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    width: 100%;
+}

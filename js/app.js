@@ -92,30 +92,81 @@ if (localStorage.getItem('info')) {
     dataBase.forEach((item) => {
         let titleBox = document.createElement('div')
         titleBox.classList.add('title__box')
-        titleBox.innerHTML = `<h3 class="main__title">${item.title}</h3>`
+        titleBox.innerHTML = `
+                <h3 class="main__title">${item.title}</h3>
+                <div class="menuBar">
+                <img class="editButton" src="./icons/pencil.svg" alt="edit">
+                     <img class="trashBin" src="./icons/trashBIn.svg" alt="trash bin">
+                </div> 
+                `
         document.querySelector('.titles__box').appendChild(titleBox)
     })
 }
 
+
 function addEvent() {
     const myDraftListItems = document.querySelectorAll('.title__box')
+    const menuBar = document.querySelectorAll('.menuBar')
     myDraftListItems.forEach((draft, index) => {
-        draft.addEventListener('click', () => {
-            const selectedItem = dataBase.find(data => data.id === dataBase[index].id)
-            draftFace.style.display = 'flex'
-            texts__box.style.display = 'none'
-            function_varible = 'close'
-            addBtn.src = './icons/exit.svg'
-            draftTitle.textContent = selectedItem.cTitle
-            draftContent.textContent = selectedItem.content
-            setTimeout(() => {
-                Object.assign(draftFace.style, {
-                    opacity: '1',
-                    transform: 'scale(1)',
+        draft.addEventListener('click', (e) => {
+            console.dir('START!')
+            if (e.target.className == 'main__title') {
+                const selectedItem = dataBase.find(data => data.id === dataBase[index].id)
+                draftFace.style.display = 'flex'
+                texts__box.style.display = 'none'
+                function_varible = 'close'
+                addBtn.src = './icons/exit.svg'
+                draftTitle.textContent = selectedItem.cTitle
+                draftContent.textContent = selectedItem.content
+                setTimeout(() => {
+                    Object.assign(draftFace.style, {
+                        opacity: '1',
+                        transform: 'scale(1)',
+                    })
+                }, 100);
+                console.log(selectedItem);
+            } else if (e.target.className == 'trashBin') {
+                const deletingItem = dataBase.find(data => data.id === dataBase[index].id)
+                let newDB = dataBase.filter((db) => {
+                    return db.id != deletingItem.id
                 })
-            }, 100);
-            console.log(selectedItem);
+                dataBase = newDB
+                texts__box.innerHTML = `<p class="no__data__text">No data available</p>`
+                dataBase.forEach((item, index) => {
+                    let titleBox = document.createElement('div')
+                    titleBox.classList.add('title__box')
+                    titleBox.innerHTML = `
+                            <h3 class="main__title">${item.title}</h3>
+                            <div class="menuBar">
+                            <img class="editButton" src="./icons/pencil.svg" alt="edit">
+                                 <img class="trashBin" src="./icons/trashBIn.svg" alt="trash bin">
+                            </div> 
+                            `
+                    document.querySelector('.titles__box').appendChild(titleBox)
+                })
+                addEvent()
+            }
+            localStorage.setItem('info', JSON.stringify(dataBase))
+            console.log('DONE!');
         })
+
+        draft.addEventListener('contextmenu', (e) => {
+            e.preventDefault()
+            menuBar.forEach(bar => {
+                bar.style.opacity = '0'
+            })
+            menuBar[index].style.display = "flex"
+            setTimeout(() => {
+                menuBar[index].style.opacity = '1'
+            }, 100);
+        })
+
+        window.addEventListener('click', () => {
+            menuBar.forEach(bar => {
+                bar.style.display = 'none'
+            })
+        })
+
     })
 }
 
@@ -160,7 +211,13 @@ form.addEventListener('submit', (e) => {
     dataBase.forEach((item, index) => {
         let titleBox = document.createElement('div')
         titleBox.classList.add('title__box')
-        titleBox.innerHTML = `<h3 class="main__title">${item.title}</h3>`
+        titleBox.innerHTML = `
+                <h3 class="main__title">${item.title}</h3>
+                <div class="menuBar">
+                <img class="editButton" src="./icons/pencil.svg" alt="edit">
+                     <img class="trashBin" src="./icons/trashBIn.svg" alt="trash bin">
+                </div> 
+                `
         document.querySelector('.titles__box').appendChild(titleBox)
         addEvent()
         console.log('done')
@@ -174,6 +231,10 @@ form.addEventListener('submit', (e) => {
 if (document.querySelector('.titles__box').innerHTML == '') {
     document.querySelector('.titles__box').innerHTML = `<p class="no__data__text">No data available</p>`
 }
+
+
+
+
 
 secretInp.addEventListener('keyup', (e) => {
     if (e.keyCode == 13) {
