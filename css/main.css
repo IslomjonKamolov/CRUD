@@ -34,8 +34,9 @@ body {
 
 .form {
     display: flex;
-    width: 90%;
+    max-width: 90%;
     flex-direction: column;
+    width: 100%;
     gap: 40px;
     background: #031a3b;
     box-shadow: 0 5px 20px 2px #ffffff, 0 0 10px 2px rgb(142, 205, 208) inset, 0 15px 5px 2px #4e4d4d;
@@ -49,6 +50,13 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 20px 40px;
+}
+
+@media (max-width: 768px) {
+    .form {
+        padding: 10px 20px;
+
+    }
 }
 
 input,
@@ -105,7 +113,8 @@ label {
 }
 
 .titles__box {
-    width: 800px;
+    max-width: 800px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     background: #031a3b;
@@ -247,7 +256,7 @@ label {
     text-align: justify;
 }
 
-.menuBar{
+.menuBar {
     display: none;
     align-items: center;
     justify-content: end;
@@ -256,12 +265,13 @@ label {
     transition: all 0.3s;
 }
 
-.main__title{
+.main__title {
     width: 100%;
     display: flex;
 }
 
-.trashBin, .editButton{
+.trashBin,
+.editButton {
     width: 24px;
     height: 24px;
     border: none;
@@ -272,6 +282,6 @@ label {
     justify-content: center;
 }
 
-img{
+img {
     width: 100%;
 }
