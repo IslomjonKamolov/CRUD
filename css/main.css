@@ -5,7 +5,7 @@
     user-select: none;
 }
 
-.developer__name{
+.developer__name {
     font-family: 'Courier New', Courier, monospace;
     color: rgba(255, 255, 255, 0.633);
     position: fixed;
@@ -13,16 +13,11 @@
     top: 94vh;
 }
 
-@media (max-width: 768px) {
-    .developer__name{
-        color: aqua;
-        font-size: 10px;
-        top: 15vh;
-    }
-}
-
 body {
-    background: #2a2f44;
+    background-color: #1C1C1E;
+    color: #E0E0E0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -43,10 +38,13 @@ body {
 }
 
 .header__logo {
-    color: white;
+    font-size: 32px;
+    /* Desktop */
+    color: #FFFFFF;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 40px;
+    text-align: center;
+    text-shadow: 0 0 10px #00FFFF;
+    /* Neon ko'k glow */
 }
 
 .form {
@@ -55,8 +53,8 @@ body {
     flex-direction: column;
     width: 100%;
     gap: 40px;
-    background: #031a3b;
-    box-shadow: 0 5px 20px 2px #ffffff, 0 0 10px 2px rgb(142, 205, 208) inset, 0 15px 5px 2px #4e4d4d;
+    background-color: #1e1d1d;
+    box-shadow: 0 0 10px #0077FF;
     border-radius: 24px;
     align-items: center;
     transform: scale(0);
@@ -72,19 +70,15 @@ body {
 
 
 input,
-textarea,
-button {
-    width: 100%;
+textarea {
+    background-color: #2B2B2D;
+    border: 1px solid #3A3A3C;
+    color: #E0E0E0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0077FF;
     outline: none;
-    display: flex;
-    border-radius: 16px;
-    color: white;
-    text-shadow: 0 0 5px rgb(255, 255, 255);
-    padding: 8px 10px;
-    border: 1px solid white;
-    overflow: hidden;
-    background: #031a3b;
-    box-shadow: 0 0 10px 0 white inset;
+    font-size: 18px;
 }
 
 textarea {
@@ -92,11 +86,18 @@ textarea {
 }
 
 button {
+    background-color: transparent;
+    color: #E0E0E0;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    max-width: 50%;
+    width: 100%;
     cursor: pointer;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    font-size: 20px;
+    box-shadow: 0 0 10px #0077FF;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px currentColor;
 }
 
 label {
@@ -129,7 +130,8 @@ label {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background: #031a3b;
+    background-color: #1e1d1d;
+    box-shadow: 0 0 10px #0077FF;
     border-radius: 24px;
     position: relative;
     padding: 20px;
@@ -151,13 +153,16 @@ label {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid white;
+    border: 1px solid #0077FF;
     cursor: pointer;
 }
 
 .main__title {
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+    /* Desktop */
+    color: #E0E0E0;
+    text-shadow: 0 0 2px #FFFFFF;
+    /* Oq glow */
 }
 
 .no__data__text {
@@ -165,6 +170,7 @@ label {
     position: absolute;
     top: 40%;
     opacity: 0.4;
+    color: #0077ffab;
     left: 28%;
     user-select: none;
 }
@@ -176,6 +182,9 @@ label {
     justify-content: center;
     width: 30px;
     height: 30px;
+    color: #0077FF;
+    filter: drop-shadow(0 0 15px #00FFFF);
+    /* Neon ko'k glow */
 }
 
 .header {
@@ -243,29 +252,31 @@ label {
     margin-right: auto;
     opacity: 0;
     transform: scale(0);
-    background: rgba(16, 16, 111, 0.1);
     border-radius: 24px;
     transition: all 0.3s;
+    border: 1px solid #0077FF;
     padding: 20px;
     max-height: 500px;
     z-index: 9;
-    box-shadow: 0 0 10px 0 rgb(125, 123, 123);
     overflow: auto;
     width: 100%;
 }
 
 .draftTitle {
-    font-size: 40px;
-    text-shadow: 0 0 3px rgb(251, 255, 0);
+    font-size: 24px;
+    /* Desktop */
+    color: #E0E0E0;
+    text-shadow: 0 0 5px #FFFFFF;
+    /* Oq glow */
 }
 
 .draftContent {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    /* Desktop */
+    color: #b8b8b8;
     padding-left: 20px;
-    text-indent: 20px;
-    letter-spacing: 0.3px;
-    text-shadow: 0 0 2px rgb(255, 200, 81);
-    text-align: justify;
+    text-shadow: 0 0 5px #00ffff7a;
+    /* Neon ko'k glow */
 }
 
 .menuBar {
@@ -298,54 +309,18 @@ img {
     width: 100%;
 }
 
-
 @media (max-width: 768px) {
-    .no__data__text {
-        font-size: 35px;
-        left: 0;
-        top: 45%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .form {
-        padding: 15px 5px;
-        left: 0;
-        max-width: 100%;
-        position: absolute;
-        margin: 0;
-        padding-top: 80px;
-        border-radius: 0;
-        box-shadow: none;
-        bottom: 0;
-    }
-
-    .header {
-        padding: 0 20px;
-    }
-
-    body {
-        padding: 0;
-        min-height: 100vh;
-    }
-
-    input,
-    textarea,
-    button {
+    .developer__name{
         font-size: 12px;
     }
 
-    .titles__box {
-        padding: 10px;
-    }
-
-    .main__container {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .draftContent{
-        text-align: left;
+    .no__data__text{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        font-size: 24px;
+        top: 180px;
     }
 }

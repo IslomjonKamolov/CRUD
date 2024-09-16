@@ -261,3 +261,7 @@ secretInp.addEventListener('keyup', (e) => {
         secretInp.value = ''
     }
 })
+
+window.addEventListener('resize', () => {
+  console.log(window.innerWidth);
+})
