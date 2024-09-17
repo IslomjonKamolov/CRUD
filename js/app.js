@@ -102,7 +102,7 @@ function updateDOM() {
             <h3 class="main__title">${item.title}</h3>
             <div class="menuBar">
                 <img class="editButton" src="./icons/pencil.svg" alt="edit">
-                <img class="trashBin" src="./icons/trashBin.svg" alt="trash bin">
+                <img class="trashBin" src="./icons/trashBIn.svg" alt="trash bin">
             </div> 
         `
         texts__box.appendChild(titleBox)
